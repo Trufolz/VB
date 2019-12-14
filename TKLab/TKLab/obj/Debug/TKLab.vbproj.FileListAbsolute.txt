@@ -1,0 +1,2 @@
+C:\Users\student\AppData\Local\Temporary Projects\WindowsApplication1\bin\Debug\TKLab1.exe.config
+T:\tmp\TKLab\TKLab\bin\Debug\TKLab.exe.config
