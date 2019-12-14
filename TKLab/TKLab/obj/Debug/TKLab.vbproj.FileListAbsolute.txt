@@ -1,2 +1,6 @@
 C:\Users\student\AppData\Local\Temporary Projects\WindowsApplication1\bin\Debug\TKLab1.exe.config
 T:\tmp\TKLab\TKLab\bin\Debug\TKLab.exe.config
+T:\tmp\VB\TKLab\TKLab\bin\Debug\TKLab.exe.config
+T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab1.Form1.resources
+T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab1.Resources.resources
+T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab.vbproj.GenerateResource.Cache
