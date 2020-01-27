@@ -4,3 +4,14 @@ T:\tmp\VB\TKLab\TKLab\bin\Debug\TKLab.exe.config
 T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab1.Form1.resources
 T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab1.Resources.resources
 T:\tmp\VB\TKLab\TKLab\obj\Debug\TKLab.vbproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\bin\Debug\TKLab.exe.config
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\bin\Debug\TKLab.exe
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\bin\Debug\TKLab.pdb
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\bin\Debug\TKLab.xml
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab.vbprojAssemblyReference.cache
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab1.Resources.resources
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab.vbproj.GenerateResource.cache
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab.exe
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab.xml
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab.pdb
+C:\Users\Admin\Desktop\VB\TKLab\TKLab\obj\Debug\TKLab1.YearToLabel.resources
