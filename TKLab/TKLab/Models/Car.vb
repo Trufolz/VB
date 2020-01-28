@@ -1,85 +1,156 @@
-﻿Public Class Car
-    Public Brand As Brand
-    Public Model As String
-    Public Year As Integer
-    Public Color As Color
-    Public HorsePower As Integer
-    Public EngineVolume As Integer
-    Public Fuel As Fuel
-    Public Price As Integer
-    Public Rating As Integer
+﻿Namespace Models
 
-End Class
+    Public Class Car
+        Private _id As Integer
+        Property Id As Integer
+            Get
+                Return _id
+            End Get
+            Set(ByVal value As Integer)
+                _id = value
+            End Set
+        End Property
 
-Public Enum Fuel
-    Diesel
-    Gasoline
-    Hybrid
-    Electric
-End Enum
+        Public _brand As Brand
+        Property Brand As Brand
+            Get
+                Return _brand
+            End Get
+            Set(ByVal value As Brand)
+                _brand = value
+            End Set
+        End Property
 
-Public Enum Color
-    Black
-    White
-    Red
-    Blue
-    Silver
-    Green
-    Yellow
-    Maroon
-    Purple
-End Enum
+        Public _model As String
+        Property Model As String
+            Get
+                Return _model
+            End Get
+            Set(ByVal value As String)
+                _model = value
+            End Set
+        End Property
 
-Public Enum Brand
-    Fiat
-    Volkswagen
-    BMW
-    Audi
-    Skoda
-    Seat
-    Kia
-    Hyundai
-    Toyota
-    Honda
-    Nissan
-    Peugeot
-    Renault
-    Citroen
-    Volvo
-    Ford
-End Enum
+        Public _year As Integer
+        Property Year As Integer
+            Get
+                Return _year
+            End Get
+            Set(ByVal value As Integer)
+                _year = value
+            End Set
+        End Property
 
-Public Enum Volkswagen
-    Golf
-    Polo
-    Passat
-End Enum
+        Public _color As Color
+        Property Color As Color
+            Get
+                Return _color
+            End Get
+            Set(ByVal value As Color)
+                _color = value
+            End Set
+        End Property
 
-Public Enum Skoda
-    Fabia
-    Octavia
-    Superb
-End Enum
+        Public _horsePower As Integer
+        Property HorsePower As Integer
+            Get
+                Return _horsePower
+            End Get
+            Set(ByVal value As Integer)
+                _horsePower = value
+            End Set
+        End Property
 
-Public Enum Audi
-    A1
-    A2
-    A3
-    A4
-    A5
-    A6
-    A7
-    A8
-    Q1
-    Q2
-    Q3
-    Q4
-    Q5
-    Q7
-End Enum
+        Public _engineVolume As Integer
+        Property EngineVolume As Integer
+            Get
+                Return _engineVolume
+            End Get
+            Set(ByVal value As Integer)
+                _engineVolume = value
+            End Set
+        End Property
 
-Public Enum Toyota
-    Corolla
-    Auris
-    Avensis
-End Enum
+        Public _fuel As Fuel
+        Property Fuel As Fuel
+            Get
+                Return _fuel
+            End Get
+            Set(ByVal value As Fuel)
+                _fuel = value
+            End Set
+        End Property
+
+        Public _price As Integer
+        Property Price As Integer
+            Get
+                Return _price
+            End Get
+            Set(ByVal value As Integer)
+                _price = value
+            End Set
+        End Property
+
+        Public _rating As Integer
+        Property Rating As Integer
+            Get
+                Return _rating
+            End Get
+            Set(ByVal value As Integer)
+                _rating = value
+            End Set
+        End Property
+
+        Public Overrides Function ToString() As String
+            Return $"{Brand} {Model} {ParseToFloatingPointNumber(EngineVolume)} {Fuel} {HorsePower}HP {Year}"
+        End Function
+        Private Function ParseToFloatingPointNumber(num As Integer) As String
+            Dim stringNum = (Convert.ToDecimal(num) / 1000).ToString()
+            If stringNum.Contains(".") Then
+                Return stringNum
+            Else
+                Return $"{stringNum}.0"
+            End If
+        End Function
+
+    End Class
+
+    Public Enum Fuel
+        Diesel
+        Gasoline
+        Hybrid
+        Electric
+    End Enum
+
+    Public Enum Color
+        Black
+        White
+        Red
+        Blue
+        Silver
+        Green
+        Yellow
+        Maroon
+        Purple
+    End Enum
+
+    Public Enum Brand
+        Fiat
+        Volkswagen
+        BMW
+        Audi
+        Skoda
+        Seat
+        Kia
+        Hyundai
+        Toyota
+        Honda
+        Nissan
+        Peugeot
+        Renault
+        Citroen
+        Volvo
+        Ford
+        AlfaRomeo
+    End Enum
+End Namespace

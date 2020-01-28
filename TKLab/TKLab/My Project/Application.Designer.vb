@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.TKLab1.YearToLabel
+            Me.MainForm = Global.Komis.Form
         End Sub
     End Class
 End Namespace
