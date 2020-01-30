@@ -1,7 +1,4 @@
-Imports System
-Imports System.Data.Entity
 Imports System.Data.Entity.Migrations
-Imports System.Linq
 Imports Komis.Context
 
 Namespace Migrations
@@ -43,6 +40,18 @@ Namespace Migrations
                 context.SaveChanges()
             End If
 
+            If Not context.Images.Any Then
+                Dim alfa As Domain.Image = New Domain.Image With {.Content = My.Resources.alfa159}
+                Dim bora As Domain.Image = New Domain.Image With {.Content = My.Resources.vwbora}
+
+                Dim images = New List(Of Context.Image)() From {
+                    New Context.Image() With {.Content = bora.ToContext().Content},
+                    New Context.Image() With {.Content = alfa.ToContext().Content}
+                }
+                context.Images.AddRange(images)
+                context.SaveChanges()
+            End If
+
             If Not context.Cars.Any Then
                 Dim cars = New List(Of Car)() From {
                     New Car() With {
@@ -54,7 +63,8 @@ Namespace Migrations
                         .EngineVolume = 1900,
                         .FuelId = 1,
                         .Price = 4900,
-                        .Rating = 1
+                        .Rating = 1,
+                        .ImageId = 1
                     },
                     New Car() With {
                         .BrandId = 2,
@@ -65,14 +75,13 @@ Namespace Migrations
                         .EngineVolume = 2000,
                         .FuelId = 1,
                         .Price = 25000,
-                        .Rating = 5
+                        .Rating = 5,
+                        .ImageId = 2
                     }
                 }
                 context.Cars.AddRange(cars)
                 context.SaveChanges()
             End If
         End Sub
-
     End Class
-
 End Namespace

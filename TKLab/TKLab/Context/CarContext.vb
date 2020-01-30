@@ -14,12 +14,14 @@ Namespace Context
         Public Property Brands() As DbSet(Of Brand)
         Public Property Colors() As DbSet(Of Color)
         Public Property Fuels() As DbSet(Of Fuel)
+        Public Property Images() As DbSet(Of Image)
 
         Protected Overrides Sub OnModelCreating(ByVal modelBuilder As DbModelBuilder)
             modelBuilder.Entity(Of Car).ToTable("Cars")
             modelBuilder.Entity(Of Brand).ToTable("Brands")
             modelBuilder.Entity(Of Color).ToTable("Colors")
             modelBuilder.Entity(Of Fuel).ToTable("Fuels")
+            modelBuilder.Entity(Of Image).ToTable("Images")
 
             modelBuilder.Entity(Of Car).HasKey(Function(car) car.Id)
             modelBuilder.Entity(Of Car).HasRequired(Function(car) car.Brand)
@@ -37,6 +39,7 @@ Namespace Context
             modelBuilder.Entity(Of Brand).Property(Function(brand) brand.Name).IsRequired()
             modelBuilder.Entity(Of Color).Property(Function(color) color.Name).IsRequired()
             modelBuilder.Entity(Of Fuel).Property(Function(fuel) fuel.Name).IsRequired()
+            modelBuilder.Entity(Of Image).Property(Function(image) image.Content).IsRequired()
         End Sub
     End Class
 End Namespace

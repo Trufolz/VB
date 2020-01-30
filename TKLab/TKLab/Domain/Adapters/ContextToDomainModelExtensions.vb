@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Imports System.IO
+Imports System.Runtime.CompilerServices
 Imports Komis.Context
 
 Public Module ContextToDomainModelExtensions
@@ -15,7 +16,7 @@ Public Module ContextToDomainModelExtensions
             .Price = contextCar.Price,
             .Rating = contextCar.Rating,
             .Year = contextCar.Year,
-            .Image = contextCar.Image.ConvertToImage()
+            .Image = contextCar.Image.ToDomain()
         }
     End Function
 
@@ -44,16 +45,27 @@ Public Module ContextToDomainModelExtensions
     End Function
 
     <Extension()>
-    Private Function ConvertToImage(ByVal byteArray As Byte()) As Image
-        Dim imageConverter As New ImageConverter()
-        Dim image As Image = DirectCast(imageConverter.ConvertTo(byteArray, GetType(Image)), Image)
-        Return image
+    Public Function ToDomain(ByVal contextImage As Context.Image) As Domain.Image
+        'Dim imageConverter As New ImageConverter()
+        'Dim content As Drawing.Image = DirectCast(imageConverter.ConvertTo(contextImage.Content, GetType(Drawing.Image)), Drawing.Image)
+        'Return New Domain.Image With {
+        '    .Id = contextImage.Id,
+        '    .Content = content
+        '}
+        Using memoryStream As New MemoryStream(contextImage.Content)
+            Return New Domain.Image With
+            {
+                .Content = Drawing.Image.FromStream(memoryStream)
+            }
+        End Using
     End Function
 
     <Extension()>
-    Private Function ConvertToByte(ByVal image As Image) As Byte()
+    Public Function ToContext(ByVal domainImage As Domain.Image) As Context.Image
         Dim imageConverter As New ImageConverter()
-        Dim imageByte As Byte() = DirectCast(imageConverter.ConvertTo(image, GetType(Byte())), Byte())
-        Return imageByte
+        Dim content As Byte() = DirectCast(imageConverter.ConvertTo(domainImage.Content, GetType(Byte())), Byte())
+        Return New Context.Image With {
+            .Content = content
+        }
     End Function
 End Module

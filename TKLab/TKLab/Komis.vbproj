@@ -85,6 +85,7 @@
     <Compile Include="Context\Models\Car.vb" />
     <Compile Include="Context\Models\Color.vb" />
     <Compile Include="Context\Models\Fuel.vb" />
+    <Compile Include="Context\Models\Image.vb" />
     <Compile Include="Context\Repository.vb" />
     <Compile Include="Domain\Adapters\ContextToDomainModelExtensions.vb" />
     <Compile Include="Domain\Forms\Form.vb">
@@ -94,15 +95,16 @@
       <DependentUpon>Form.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Context\Migrations\Configuration.vb" />
+    <Compile Include="Migrations\202001301927257_InitialMigration.Designer.vb">
+      <DependentUpon>202001301927257_InitialMigration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001301927257_InitialMigration.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Domain\Models\Brand.vb" />
     <Compile Include="Domain\Models\Car.vb" />
     <Compile Include="Domain\Models\Color.vb" />
     <Compile Include="Domain\Models\Fuel.vb" />
-    <Compile Include="Migrations\202001300003210_InitialMigration.Designer.vb">
-      <DependentUpon>202001300003210_InitialMigration.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001300003210_InitialMigration.vb" />
+    <Compile Include="Domain\Models\Image.vb" />
     <Compile Include="Utils\DateUtils.vb" />
     <Compile Include="Context\CarContext.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -125,8 +127,8 @@
     <EmbeddedResource Include="Domain\Forms\Form.resx">
       <DependentUpon>Form.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001300003210_InitialMigration.resx">
-      <DependentUpon>202001300003210_InitialMigration.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001301927257_InitialMigration.resx">
+      <DependentUpon>202001301927257_InitialMigration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -149,8 +151,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\alfa159.jpg" />
-    <Content Include="Images\vwbora.jpg" />
+    <None Include="Resources\alfa159.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vwbora.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

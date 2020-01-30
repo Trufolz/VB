@@ -59,5 +59,25 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property alfa159() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("alfa159", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property vwbora() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("vwbora", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
     End Module
 End Namespace

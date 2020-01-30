@@ -27,7 +27,7 @@ Namespace CarContext
         End Sub
 
         Private Function ConvertImageToByte(imagePath As String) As Byte()
-            Dim image As Image = Image.FromFile(imagePath)
+            Dim image As Drawing.Image = Drawing.Image.FromFile(imagePath)
             Dim imageConverter As New ImageConverter()
             Dim imageByte As Byte() = DirectCast(imageConverter.ConvertTo(image, GetType(Byte())), Byte())
             Return imageByte
