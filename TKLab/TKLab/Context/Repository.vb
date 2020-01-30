@@ -1,45 +1,13 @@
-﻿Imports Komis.Models
+﻿Imports System.IO
 Imports System.Linq
+Imports Komis.Context
 
 Namespace CarContext
     Public Class Repository
-        Public Sub Seed()
-            If Not GetCars().Any Then
-                Dim cars = New List(Of Car)() From {
-                    New Car() With {
-                        .Brand = Brand.Volkswagen,
-                        .Model = "Bora",
-                        .Year = 2000,
-                        .Color = Color.Silver,
-                        .HorsePower = 110,
-                        .EngineVolume = 1900,
-                        .Fuel = Fuel.Diesel,
-                        .Price = 4900,
-                        .Rating = 1
-                    },
-                    New Car() With {
-                        .Brand = Brand.AlfaRomeo,
-                        .Model = "159",
-                        .Year = 2009,
-                        .Color = Color.Black,
-                        .HorsePower = 170,
-                        .EngineVolume = 2000,
-                        .Fuel = Fuel.Diesel,
-                        .Price = 25000,
-                        .Rating = 5
-                    }
-                }
-                Using context As New Context.CarContext()
-                    cars.ForEach(Function(s) context.Cars.Add(s))
-                    context.SaveChanges()
-                End Using
-            End If
-        End Sub
-
-        Public Function GetCars() As List(Of Car)
-            Dim result As List(Of Car)
+        Public Function GetCars() As IQueryable(Of Car)
+            Dim result As IQueryable(Of Car)
             Using context As New Context.CarContext()
-                result = context.Cars.ToList()
+                result = context.Cars
             End Using
             Return result
         End Function
@@ -57,5 +25,18 @@ Namespace CarContext
                 context.SaveChanges()
             End Using
         End Sub
+
+        Private Function ConvertImageToByte(imagePath As String) As Byte()
+            Dim image As Image = Image.FromFile(imagePath)
+            Dim imageConverter As New ImageConverter()
+            Dim imageByte As Byte() = DirectCast(imageConverter.ConvertTo(image, GetType(Byte())), Byte())
+            Return imageByte
+        End Function
+
+        Private Function ConvertByteToImage(byteArray As Byte()) As Image
+            Dim imageConverter As New ImageConverter()
+            Dim image As Image = DirectCast(imageConverter.ConvertTo(byteArray, GetType(Image)), Image)
+            Return image
+        End Function
     End Class
 End Namespace
