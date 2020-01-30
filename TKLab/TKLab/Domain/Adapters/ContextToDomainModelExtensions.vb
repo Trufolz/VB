@@ -15,7 +15,7 @@ Public Module ContextToDomainModelExtensions
             .Price = contextCar.Price,
             .Rating = contextCar.Rating,
             .Year = contextCar.Year,
-            .Image = contextCar.Image
+            .Image = contextCar.Image.ConvertToImage()
         }
     End Function
 
@@ -41,5 +41,19 @@ Public Module ContextToDomainModelExtensions
             .Id = contextFuel.Id,
             .Name = contextFuel.Name
         }
+    End Function
+
+    <Extension()>
+    Private Function ConvertToImage(ByVal byteArray As Byte()) As Image
+        Dim imageConverter As New ImageConverter()
+        Dim image As Image = DirectCast(imageConverter.ConvertTo(byteArray, GetType(Image)), Image)
+        Return image
+    End Function
+
+    <Extension()>
+    Private Function ConvertToByte(ByVal image As Image) As Byte()
+        Dim imageConverter As New ImageConverter()
+        Dim imageByte As Byte() = DirectCast(imageConverter.ConvertTo(image, GetType(Byte())), Byte())
+        Return imageByte
     End Function
 End Module

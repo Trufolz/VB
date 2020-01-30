@@ -51,12 +51,12 @@ Partial Class Form
         Me.ClearFiltersButton = New System.Windows.Forms.Button()
         Me.ListPanel = New System.Windows.Forms.Panel()
         Me.CarList = New System.Windows.Forms.ListBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CarImagePanel = New System.Windows.Forms.PictureBox()
         Me.AddCarButton = New System.Windows.Forms.Button()
         Me.RemoveCarButton = New System.Windows.Forms.Button()
         Me.FiltersPanel.SuspendLayout()
         Me.ListPanel.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CarImagePanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ModelInput
@@ -327,13 +327,13 @@ Partial Class Form
         Me.CarList.Size = New System.Drawing.Size(394, 351)
         Me.CarList.TabIndex = 0
         '
-        'PictureBox1
+        'CarImagePanel
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(638, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(590, 415)
-        Me.PictureBox1.TabIndex = 36
-        Me.PictureBox1.TabStop = False
+        Me.CarImagePanel.Location = New System.Drawing.Point(638, 12)
+        Me.CarImagePanel.Name = "CarImagePanel"
+        Me.CarImagePanel.Size = New System.Drawing.Size(590, 415)
+        Me.CarImagePanel.TabIndex = 36
+        Me.CarImagePanel.TabStop = False
         '
         'AddCarButton
         '
@@ -361,7 +361,7 @@ Partial Class Form
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1239, 440)
         Me.Controls.Add(Me.RemoveCarButton)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.CarImagePanel)
         Me.Controls.Add(Me.AddCarButton)
         Me.Controls.Add(Me.ListPanel)
         Me.Controls.Add(Me.FiltersPanel)
@@ -371,7 +371,7 @@ Partial Class Form
         Me.FiltersPanel.ResumeLayout(False)
         Me.FiltersPanel.PerformLayout()
         Me.ListPanel.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CarImagePanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -404,7 +404,7 @@ Partial Class Form
     Friend WithEvents ListPanel As Panel
     Friend WithEvents CarList As ListBox
     Friend WithEvents AddCarButton As Button
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents CarImagePanel As PictureBox
     Friend WithEvents RemoveCarButton As Button
     Friend WithEvents ClearFiltersButton As Button
 End Class

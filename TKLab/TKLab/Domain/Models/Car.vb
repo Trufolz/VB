@@ -10,7 +10,7 @@
         Public Property Fuel As Fuel
         Public Property Price As Integer
         Public Property Rating As Integer
-        Public Property Image As Byte()
+        Public Property Image As Image
 
         Public Overrides Function ToString() As String
             Return $"{Brand} {Model} {ParseToFloatingPointNumber(EngineVolume)} {Fuel} {HorsePower}HP {Year}"

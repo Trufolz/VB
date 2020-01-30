@@ -91,4 +91,8 @@ Public Class Form
         ColorDropdown.SelectedItem = Nothing
         FuelDropdown.SelectedItem = Nothing
     End Sub
+
+    Private Sub CarList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CarList.SelectedIndexChanged
+        CarImagePanel.Image = DirectCast(CarList.SelectedItem, Domain.Car).Image
+    End Sub
 End Class
