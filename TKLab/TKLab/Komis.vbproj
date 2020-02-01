@@ -87,12 +87,19 @@
     <Compile Include="Context\Models\Fuel.vb" />
     <Compile Include="Context\Models\Image.vb" />
     <Compile Include="Context\Repository.vb" />
-    <Compile Include="Domain\Adapters\ContextToDomainModelExtensions.vb" />
-    <Compile Include="Domain\Forms\Form.vb">
+    <Compile Include="Domain\Adapters\ContextToDomainExtensions.vb" />
+    <Compile Include="Domain\Adapters\DomainToContextExtensions.vb" />
+    <Compile Include="Domain\Forms\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Domain\Forms\Form.Designer.vb">
-      <DependentUpon>Form.vb</DependentUpon>
+    <Compile Include="Domain\Forms\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Domain\Forms\NewCarForm.Designer.vb">
+      <DependentUpon>NewCarForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Forms\NewCarForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Migrations\202001301927257_InitialMigration.Designer.vb">
@@ -124,8 +131,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Domain\Forms\Form.resx">
-      <DependentUpon>Form.vb</DependentUpon>
+    <EmbeddedResource Include="Domain\Forms\MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\Forms\NewCarForm.resx">
+      <DependentUpon>NewCarForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001301927257_InitialMigration.resx">
       <DependentUpon>202001301927257_InitialMigration.vb</DependentUpon>
@@ -155,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\vwbora.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deafultcar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

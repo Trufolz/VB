@@ -43,10 +43,12 @@ Namespace Migrations
             If Not context.Images.Any Then
                 Dim alfa As Domain.Image = New Domain.Image With {.Content = My.Resources.alfa159}
                 Dim bora As Domain.Image = New Domain.Image With {.Content = My.Resources.vwbora}
+                Dim deafultCar As Domain.Image = New Domain.Image With {.Content = My.Resources.deafultcar}
 
                 Dim images = New List(Of Context.Image)() From {
                     New Context.Image() With {.Content = bora.ToContext().Content},
-                    New Context.Image() With {.Content = alfa.ToContext().Content}
+                    New Context.Image() With {.Content = alfa.ToContext().Content},
+                    New Context.Image() With {.Content = deafultCar.ToContext().Content}
                 }
                 context.Images.AddRange(images)
                 context.SaveChanges()
