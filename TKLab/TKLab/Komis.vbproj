@@ -102,13 +102,13 @@
     <Compile Include="Domain\Forms\NewCarForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Domain\Models\Car.vb" />
     <Compile Include="Migrations\202001301927257_InitialMigration.Designer.vb">
       <DependentUpon>202001301927257_InitialMigration.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202001301927257_InitialMigration.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Domain\Models\Brand.vb" />
-    <Compile Include="Domain\Models\Car.vb" />
     <Compile Include="Domain\Models\Color.vb" />
     <Compile Include="Domain\Models\Fuel.vb" />
     <Compile Include="Domain\Models\Image.vb" />
@@ -161,13 +161,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\deafultcar.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\alfa159.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\vwbora.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\deafultcar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

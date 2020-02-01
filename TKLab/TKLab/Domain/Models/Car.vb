@@ -13,7 +13,7 @@
         Public Property Image As Image
 
         Public Overrides Function ToString() As String
-            Return "" + Brand.Name + " " + Model + " " + ParseToFloatingPointNumber(EngineVolume) + " " + Fuel.Name + " " + HorsePower + "HP" + " " + Year
+            Return $"{Brand} {Model} {ParseToFloatingPointNumber(EngineVolume)} {Fuel} {HorsePower}HP {Year}"
         End Function
 
         Private Function ParseToFloatingPointNumber(num As Integer) As String
@@ -21,7 +21,7 @@
             If stringNum.Contains(".") Then
                 Return stringNum
             Else
-                Return stringNum + ".0"
+                Return $"{stringNum}.0"
             End If
         End Function
     End Class

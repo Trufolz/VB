@@ -7,7 +7,7 @@ Public Class MainForm
     Private Property RadioButtons As List(Of RadioButton)
     Public Sub New()
         InitializeComponent()
-        ConfigureComponents()
+        ConfigureComponentsOnInit()
         RadioButtons = New List(Of RadioButton) From {
             RatingButton1, RatingButton2, RatingButton3, RatingButton4, RatingButton5
         }
@@ -34,10 +34,9 @@ Public Class MainForm
             FillSelectedCarDetails()
             RatingPanel.Show()
             CheckRatingOnCarSelect()
+            RemoveCarButton.Enabled = True
         Else
-            CarImagePanel.Image = Nothing
-            DetailsPanel.Hide()
-            RatingPanel.Hide()
+            HandleNoCarSelected()
         End If
     End Sub
 
@@ -63,18 +62,19 @@ Public Class MainForm
     Private Sub RemoveCarButton_Click(sender As Object, e As EventArgs) Handles RemoveCarButton.Click
         If SelectedCar IsNot Nothing Then
             Using context As New Context.CarContext()
-                context.Cars.Remove(SelectedCar.ToContext())
+                Dim carToRemove = context.Cars.SingleOrDefault(Function(car) car.Id = SelectedCar.Id)
+                context.Cars.Remove(carToRemove)
                 context.SaveChanges()
             End Using
+            MsgBox(SelectedCar.Brand.Name + " " + SelectedCar.Model + " removed!")
             SelectedCar = Nothing
             FetchCars()
-            MsgBox(SelectedCar.Brand.Name + " " + SelectedCar.Model + " removed!")
         End If
     End Sub
 
     'PRIVATE METHODS
 
-    Private Sub ConfigureComponents()
+    Private Sub ConfigureComponentsOnInit()
         Using context As New Context.CarContext()
             BrandDropdown.DataSource = context.Brands.ToList.Select(Function(brand) brand.ToDomain()).ToList
             YearFromDropdown.DataSource = GetYears()
@@ -86,6 +86,7 @@ Public Class MainForm
         ClearFilters()
         RatingPanel.Hide()
         DetailsPanel.Hide()
+        RemoveCarButton.Enabled = False
     End Sub
 
     Private Sub CheckRatingOnCarSelect()
@@ -105,6 +106,7 @@ Public Class MainForm
 
         RatingPanel.Hide()
         DetailsPanel.Hide()
+        RemoveCarButton.Enabled = False
     End Sub
 
     Private Sub ClearFilters()
@@ -176,6 +178,16 @@ Public Class MainForm
                 cars = cars.Where(Function(car) car.Price <= Convert.ToInt32(PriceToInput.Text)).ToList
             End If
             CarList.DataSource = cars.Select(Function(car) car.ToDomain()).ToList
+            If CarList.DataSource.Count = 0 Then
+                HandleNoCarSelected()
+            End If
         End Using
+    End Sub
+
+    Private Sub HandleNoCarSelected()
+        CarImagePanel.Image = Nothing
+        DetailsPanel.Hide()
+        RatingPanel.Hide()
+        RemoveCarButton.Enabled = False
     End Sub
 End Class

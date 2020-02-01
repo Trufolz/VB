@@ -37,7 +37,6 @@ Public Class NewCarForm
                 context.Cars.Add(newContextCar)
                 context.SaveChanges()
             End Using
-            MainForm.CarList.DataSource.Add(newDomainCar)
             Hide()
             MsgBox(newDomainCar.Brand.Name + " " + newDomainCar.Model + " saved!")
         End If

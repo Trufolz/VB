@@ -83,7 +83,7 @@ Partial Class MainForm
         Me.YearFromDropdown = New System.Windows.Forms.ComboBox()
         Me.YearToDropdown = New System.Windows.Forms.ComboBox()
         Me.ModelInput = New System.Windows.Forms.TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.AddRemovePanel = New System.Windows.Forms.Panel()
         Me.CarImagePanel = New System.Windows.Forms.PictureBox()
         Me.ListPanel.SuspendLayout()
         Me.RatingPanel.SuspendLayout()
@@ -95,7 +95,7 @@ Partial Class MainForm
         CType(Me.EngineVolumeFromInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HorsePowerToInput, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HorsePowerFromInput, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
+        Me.AddRemovePanel.SuspendLayout()
         CType(Me.CarImagePanel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -442,14 +442,18 @@ Partial Class MainForm
         '
         'PriceToInput
         '
+        Me.PriceToInput.Increment = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.PriceToInput.Location = New System.Drawing.Point(129, 385)
+        Me.PriceToInput.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.PriceToInput.Name = "PriceToInput"
         Me.PriceToInput.Size = New System.Drawing.Size(53, 20)
         Me.PriceToInput.TabIndex = 45
         '
         'PriceFromInput
         '
+        Me.PriceFromInput.Increment = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.PriceFromInput.Location = New System.Drawing.Point(48, 385)
+        Me.PriceFromInput.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.PriceFromInput.Name = "PriceFromInput"
         Me.PriceFromInput.Size = New System.Drawing.Size(53, 20)
         Me.PriceFromInput.TabIndex = 44
@@ -483,7 +487,9 @@ Partial Class MainForm
         '
         'EngineVolumeToInput
         '
+        Me.EngineVolumeToInput.Increment = New Decimal(New Integer() {10, 0, 0, 0})
         Me.EngineVolumeToInput.Location = New System.Drawing.Point(127, 231)
+        Me.EngineVolumeToInput.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.EngineVolumeToInput.Name = "EngineVolumeToInput"
         Me.EngineVolumeToInput.Size = New System.Drawing.Size(53, 20)
         Me.EngineVolumeToInput.TabIndex = 40
@@ -499,7 +505,9 @@ Partial Class MainForm
         '
         'EngineVolumeFromInput
         '
+        Me.EngineVolumeFromInput.Increment = New Decimal(New Integer() {10, 0, 0, 0})
         Me.EngineVolumeFromInput.Location = New System.Drawing.Point(46, 231)
+        Me.EngineVolumeFromInput.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
         Me.EngineVolumeFromInput.Name = "EngineVolumeFromInput"
         Me.EngineVolumeFromInput.Size = New System.Drawing.Size(53, 20)
         Me.EngineVolumeFromInput.TabIndex = 39
@@ -517,6 +525,7 @@ Partial Class MainForm
         '
         Me.HorsePowerToInput.Increment = New Decimal(New Integer() {10, 0, 0, 0})
         Me.HorsePowerToInput.Location = New System.Drawing.Point(127, 177)
+        Me.HorsePowerToInput.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.HorsePowerToInput.Name = "HorsePowerToInput"
         Me.HorsePowerToInput.Size = New System.Drawing.Size(53, 20)
         Me.HorsePowerToInput.TabIndex = 38
@@ -535,6 +544,7 @@ Partial Class MainForm
         '
         Me.HorsePowerFromInput.Increment = New Decimal(New Integer() {10, 0, 0, 0})
         Me.HorsePowerFromInput.Location = New System.Drawing.Point(46, 177)
+        Me.HorsePowerFromInput.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.HorsePowerFromInput.Name = "HorsePowerFromInput"
         Me.HorsePowerFromInput.Size = New System.Drawing.Size(53, 20)
         Me.HorsePowerFromInput.TabIndex = 37
@@ -699,14 +709,14 @@ Partial Class MainForm
         Me.ModelInput.Size = New System.Drawing.Size(166, 20)
         Me.ModelInput.TabIndex = 12
         '
-        'Panel2
+        'AddRemovePanel
         '
-        Me.Panel2.Controls.Add(Me.AddCarButton)
-        Me.Panel2.Controls.Add(Me.RemoveCarButton)
-        Me.Panel2.Location = New System.Drawing.Point(614, 402)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(113, 77)
-        Me.Panel2.TabIndex = 41
+        Me.AddRemovePanel.Controls.Add(Me.AddCarButton)
+        Me.AddRemovePanel.Controls.Add(Me.RemoveCarButton)
+        Me.AddRemovePanel.Location = New System.Drawing.Point(614, 402)
+        Me.AddRemovePanel.Name = "AddRemovePanel"
+        Me.AddRemovePanel.Size = New System.Drawing.Size(113, 77)
+        Me.AddRemovePanel.TabIndex = 41
         '
         'CarImagePanel
         '
@@ -722,7 +732,7 @@ Partial Class MainForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1347, 492)
         Me.Controls.Add(Me.FiltersPanel)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.AddRemovePanel)
         Me.Controls.Add(Me.DetailsPanel)
         Me.Controls.Add(Me.RatingPanel)
         Me.Controls.Add(Me.CarImagePanel)
@@ -743,7 +753,7 @@ Partial Class MainForm
         CType(Me.EngineVolumeFromInput, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HorsePowerToInput, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HorsePowerFromInput, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
+        Me.AddRemovePanel.ResumeLayout(False)
         CType(Me.CarImagePanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -808,7 +818,7 @@ Partial Class MainForm
     Friend WithEvents YearFromDropdown As System.Windows.Forms.ComboBox
     Friend WithEvents YearToDropdown As System.Windows.Forms.ComboBox
     Friend WithEvents ModelInput As System.Windows.Forms.TextBox
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents AddRemovePanel As System.Windows.Forms.Panel
     Friend WithEvents SelectedCarPrice As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
